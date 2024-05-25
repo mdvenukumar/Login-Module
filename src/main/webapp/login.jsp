@@ -8,6 +8,13 @@
     response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
     response.setHeader("Pragma", "no-cache");
     response.setDateHeader("Expires", 0);
+
+    String errorMessage = (String) request.getAttribute("errorMessage");
+    if (errorMessage != null) {
+%>
+<p style="color: red;"><%= errorMessage %></p>
+<%
+    }
 %>
 <form action="login" method="post">
     <label for="uname">Username:</label>
